@@ -1,0 +1,65 @@
+aid: denticon
+name: Denticon
+review:
+  question: Does Denticon expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Denticon publishes an event-driven,
+    webhook (HTTP callback) integration model, not a streaming WebSocket or
+    Server-Sent Events surface. Webhook payload schemas are gated behind
+    Planet DDS developer portal enrollment and were not available to model.
+findings:
+  summary: |
+    Denticon does not publish a documented public WebSocket API. The Denticon
+    API program (relaunched July 2024 on developer.planetdds.com, powered by
+    Azure API Management) exposes RESTful APIs over HTTPS, plus an
+    event-driven architecture delivered via outbound HTTP webhooks and batch
+    data extracts. Webhooks are one-way HTTP POST callbacks to a
+    partner-registered endpoint, not a bidirectional ws:// or wss:// socket.
+    No realtime WebSocket endpoint is documented on the developer portal, the
+    legacy api.denticon.com libraries, or Planet DDS marketing pages. API
+    access itself is partner-gated: Planet DDS must approve the vendor and
+    each client practice must authorize vendor access to specific office
+    locations, so the interactive specification is not publicly downloadable.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.denticon.com
+      documented: true
+      note: Partner-gated; keys require Planet DDS approval and per-office authorization.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Event-driven outbound HTTP POST callbacks for patient and appointment updates. Not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on developer.planetdds.com, api.denticon.com, or Planet DDS product pages as of the review date.
+  endpointsConfirmedRest: []
+  endpointsModeled: true
+  accessModel: partner-gated
+sources:
+  - url: https://developer.planetdds.com/
+    type: Documentation
+    note: New Denticon developer portal (July 2024, Azure API Management). REST + webhooks + batch; no WebSocket mentioned.
+  - url: https://developer.planetdds.com/apis
+    type: APIReference
+    note: API resources grouped as Patient, Appointments, RCM, Financial, Clinical, Practice. Interactive access requires enrollment.
+  - url: https://api.denticon.com/Home/GettingStarted
+    type: Documentation
+    note: Legacy API libraries (Appointment, Patient V2, Setup, Patient Registration) using Vendor/Auth key + PGID; REST over HTTPS only.
+  - url: https://www.planetdds.com/integrations/
+    type: Documentation
+    note: Planet DDS API program overview; contact sales (800-861-5098); Planet DDS owns Denticon, Cloud 9, and Apteryx.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. The event-driven capability is
+    delivered via outbound HTTP webhooks, which are documented in apis.yml as
+    the Denticon Events and Webhooks API. Because keys and interactive specs
+    are partner-gated, all API entries are marked endpointsModeled and no
+    OpenAPI or AsyncAPI document was fabricated.

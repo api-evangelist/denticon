@@ -1,0 +1,174 @@
+aid: denticon
+url: https://raw.githubusercontent.com/api-evangelist/denticon/refs/heads/main/apis.yml
+name: Denticon
+kind: company
+description: Denticon is a cloud-based dental practice management platform built for
+  dental service organizations (DSOs) and multi-location group practices, owned and
+  operated by Planet DDS (which also owns Cloud 9 Ortho and Apteryx imaging). The
+  Denticon API program - relaunched in July 2024 on a new developer portal powered
+  by Azure API Management - exposes RESTful APIs, webhooks, and batch data extracts
+  covering patient, appointment, financial/ledger, insurance and claims (Revenue
+  Cycle Management), clinical, and practice/office data, with OAuth 2.0 auth, an
+  event-driven architecture for synchronized updates, and writebacks into Denticon.
+  API access is partner-gated - Planet DDS must approve vendors and each client
+  practice authorizes vendor access to specific office locations (OIDs). Public
+  documentation exists, but keys and interactive access require program enrollment,
+  so the endpoint surface below is modeled from the published API categories rather
+  than a downloadable OpenAPI specification.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Dental
+- Practice Management
+- Healthcare
+- DSO
+- EHR
+- Patient Data
+- Revenue Cycle Management
+- Partner API
+created: '2026-07-04'
+modified: '2026-07-04'
+specificationVersion: '0.19'
+apis:
+- aid: denticon:denticon-patient-api
+  name: Denticon Patient API
+  tags:
+  - Patients
+  - Demographics
+  - Documents
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/apis
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/apis
+    type: Documentation
+  - url: https://api.denticon.com/Home/PatientV2Apis
+    type: APIReference
+  endpointsModeled: true
+  description: Create new patients, update and synchronize patient demographics and
+    medical history, and upload patient documents into Denticon. Access is partner
+    approved and scoped by practice group (PGID) and office (OID). Endpoint paths are
+    modeled from the published Patient V2 API category; exact routes require developer
+    portal enrollment.
+- aid: denticon:denticon-appointments-api
+  name: Denticon Appointments API
+  tags:
+  - Appointments
+  - Scheduling
+  - Availability
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/apis
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/apis
+    type: Documentation
+  - url: https://api.denticon.com/Home/GettingStarted
+    type: APIReference
+  endpointsModeled: true
+  description: Read appointments on the schedule, query open scheduling availability,
+    and book, confirm, reschedule, or cancel appointments to increase chair
+    utilization. Appointment status writebacks update Denticon from external systems.
+    Endpoints modeled from the published Appointment API category.
+- aid: denticon:denticon-revenue-cycle-management-api
+  name: Denticon Revenue Cycle Management API
+  tags:
+  - Insurance
+  - Claims
+  - RCM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/apis
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/apis
+    type: Documentation
+  endpointsModeled: true
+  description: Retrieve insurance eligibility and claims data and post writebacks
+    that automate insurance verification and revenue cycle workflows. Part of the
+    July 2024 Revenue Cycle Management API set. Endpoints modeled from published
+    category descriptions.
+- aid: denticon:denticon-financial-ledger-api
+  name: Denticon Financial Ledger API
+  tags:
+  - Ledger
+  - Billing
+  - Balances
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/apis
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/apis
+    type: Documentation
+  endpointsModeled: true
+  description: Access patient ledger, account balance, and transaction data for
+    analytics, patient billing, and payment reconciliation, with ledger writebacks
+    into Denticon. Endpoints modeled from the published Financial data category.
+- aid: denticon:denticon-clinical-api
+  name: Denticon Clinical API
+  tags:
+  - Clinical
+  - Medical History
+  - Treatment Plans
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/apis
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/apis
+    type: Documentation
+  endpointsModeled: true
+  description: Read clinical data including medical history, treatment plans, and
+    clinical notes, and write back updates to patient medical history and documents.
+    Part of the Clinical Tools API set. Endpoints modeled from published category
+    descriptions.
+- aid: denticon:denticon-practice-api
+  name: Denticon Practice API
+  tags:
+  - Offices
+  - Providers
+  - Configuration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/apis
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/apis
+    type: Documentation
+  - url: https://api.denticon.com/Home/GettingStarted
+    type: APIReference
+  endpointsModeled: true
+  description: Retrieve practice configuration - office locations (OIDs), providers,
+    and setup data - so that every query can be scoped to the correct location in
+    Denticon's multi-location single-database model. Corresponds to the legacy Setup
+    APIs and the new Practice data category. Endpoints modeled from published
+    descriptions.
+- aid: denticon:denticon-events-webhooks-api
+  name: Denticon Events and Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Event Driven
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planetdds.com/
+  baseURL: https://api.denticon.com
+  properties:
+  - url: https://developer.planetdds.com/
+    type: Documentation
+  endpointsModeled: true
+  description: Event-driven architecture that pushes synchronized patient and
+    appointment updates to partner-registered webhook endpoints when records are
+    created, modified, or cancelled - removing the need for polling. Configuration
+    and event payloads require developer portal enrollment; surface is modeled from
+    the published event-driven capability.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/planet-dds
+- type: Website
+  url: https://www.planetdds.com/denticon/
+- type: Documentation
+  url: https://developer.planetdds.com/
+- url: https://api.denticon.com/Home/GettingStarted
+  type: Documentation
+- type: SignUp
+  url: https://developer.planetdds.com/
+- url: https://www.planetdds.com/integrations/
+  type: Partners
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
