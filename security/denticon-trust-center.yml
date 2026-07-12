@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://www.planetdds.com/
+url: https://www.planetdds.com/
+certifications:
+- HIPAA
+- GDPR
+evidence:
+- source: https://www.planetdds.com/
+  keywords:
+  - hipaa
+  - trust center
+  - gdpr

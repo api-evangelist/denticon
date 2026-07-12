@@ -157,6 +157,10 @@ apis:
     and event payloads require developer portal enrollment; surface is modeled from
     the published event-driven capability.
 common:
+- type: TrustCenter
+  url: security/denticon-trust-center.yml
+- type: DomainSecurity
+  url: security/denticon-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/planet-dds
 - type: Website
