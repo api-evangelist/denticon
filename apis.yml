@@ -38,7 +38,7 @@ tags:
 - Partner API
 created: '2026-07-04'
 modified: '2026-07-04'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: denticon:denticon-patient-api
   name: Denticon Patient API
