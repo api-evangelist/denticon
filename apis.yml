@@ -152,6 +152,10 @@ apis:
 - aid: denticon:denticon-events-webhooks-api
   name: Denticon Events and Webhooks API
   tags:
+  - Webhook
+  - Event
+  - Event-Driven
+  tags_raw:
   - Webhooks
   - Events
   - Event Driven
