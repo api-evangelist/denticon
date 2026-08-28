@@ -15,6 +15,17 @@ description: Denticon is a cloud-based dental practice management platform built
   documentation exists, but keys and interactive access require program enrollment,
   so the endpoint surface below is modeled from the published API categories rather
   than a downloadable OpenAPI specification.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
