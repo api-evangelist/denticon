@@ -48,7 +48,7 @@ tags:
 - Revenue Cycle Management
 - Partner API
 created: '2026-07-04'
-modified: '2026-07-04'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: denticon:denticon-patient-api
@@ -183,6 +183,10 @@ apis:
     and event payloads require developer portal enrollment; surface is modeled from
     the published event-driven capability.
 common:
+- url: https://www.planetdds.com/blog/
+  type: Blog
+- url: https://www.planetdds.com/blog/feed/
+  type: BlogRSS
 - type: TrustCenter
   url: security/denticon-trust-center.yml
 - type: DomainSecurity
