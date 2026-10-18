@@ -43,6 +43,15 @@ tags:
 - Practice Management
 - Healthcare
 - DSO
+- Electronic Health Records
+- Patient Data
+- Revenue Cycle Management
+- Partner API
+tags_raw:
+- Dental
+- Practice Management
+- Healthcare
+- DSO
 - EHR
 - Patient Data
 - Revenue Cycle Management
@@ -93,6 +102,10 @@ apis:
 - aid: denticon:denticon-revenue-cycle-management-api
   name: Denticon Revenue Cycle Management API
   tags:
+  - Insurance
+  - Claims
+  - Revenue Cycle Management
+  tags_raw:
   - Insurance
   - Claims
   - RCM
