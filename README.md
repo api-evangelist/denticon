@@ -1,4 +1,4 @@
-# Denticon (denticon)
+# Denticon
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,80 +64,93 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Denticon is a cloud-based dental practice management platform built for dental service organizations (DSOs) and multi-location group practices. It is owned and operated by **Planet DDS**, which also owns Cloud 9 Ortho and Apteryx imaging. The Denticon API program was relaunched in July 2024 on a new developer portal (developer.planetdds.com) powered by Azure API Management, exposing RESTful APIs, an event-driven webhook architecture, and batch data extracts across patient, appointment, financial/ledger, insurance and claims (Revenue Cycle Management), clinical, and practice/office data, with OAuth 2.0 authentication and writebacks into Denticon.
+Denticon is a cloud-based dental practice management platform built for dental service organizations (DSOs) and multi-location group practices, owned and operated by Planet DDS (which also owns Cloud 9 Ortho and Apteryx imaging). The Denticon API program - relaunched in July 2024 on a new developer portal powered by Azure API Management - exposes RESTful APIs, webhooks, and batch data extracts covering patient, appointment, financial/ledger, insurance and claims (Revenue Cycle Management), clinical, and practice/office data, with OAuth 2.0 auth, an event-driven architecture for synchronized updates, and writebacks into Denticon. API access is partner-gated - Planet DDS must approve vendors and each client practice authorizes vendor access to specific office locations (OIDs). Public documentation exists, but keys and interactive access require program enrollment, so the endpoint surface below is modeled from the published API categories rather than a downloadable OpenAPI specification.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/denticon/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/denticon/refs/heads/main/apis.yml)
+**Areas:** Dental · Practice Management · Healthcare · DSO · Electronic Health Records · Patient Data · Revenue Cycle Management · Partner API
 
-## Access Model (Partner-Gated)
+## Denticon on APIs.io
 
-This is an honestly-modeled entry. Denticon's API is **not openly self-serve**:
+Everything profiled for Denticon is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/denticon/](https://apis.io/providers/denticon/)** — or go straight to one of the APIs or properties below.
 
-- **Vendor approval:** Planet DDS must approve a partner/vendor into the API program before keys are issued. Prospective vendors apply through the Planet DDS "Partner with Us" / integrations process; approved vendors receive a demo account.
-- **Client authorization:** Each client practice must log into Denticon and configure API Vendor Settings (Setup → Offices) to authorize which vendors may access which office locations (OIDs).
-- **Scoping:** Denticon runs a multi-location single-database model, so every request is scoped by practice group (PGID) and office (OID).
-- **Auth:** The new portal uses OAuth 2.0 best practices; the legacy `api.denticon.com` libraries use a Vendor Key + Auth/Client Key + PGID.
+### APIs (7)
 
-Public documentation exists, but the interactive specification and downloadable OpenAPI are behind portal enrollment. For that reason every API in `apis.yml` is marked `endpointsModeled: true` - the logical API groupings and capabilities are sourced from Planet DDS's published category descriptions, and no full endpoint surface or OpenAPI/AsyncAPI document has been fabricated.
+- [Denticon Patient API](https://apis.io/apis/denticon/denticon-patient-api/) — Create new patients, update and synchronize patient demographics and medical history, and upload patient documents into Denticon. Access is partner approved…
+- [Denticon Appointments API](https://apis.io/apis/denticon/denticon-appointments-api/) — Read appointments on the schedule, query open scheduling availability, and book, confirm, reschedule, or cancel appointments to increase chair utilization.…
+- [Denticon Revenue Cycle Management API](https://apis.io/apis/denticon/denticon-revenue-cycle-management-api/) — Retrieve insurance eligibility and claims data and post writebacks that automate insurance verification and revenue cycle workflows. Part of the July 2024…
+- [Denticon Financial Ledger API](https://apis.io/apis/denticon/denticon-financial-ledger-api/) — Access patient ledger, account balance, and transaction data for analytics, patient billing, and payment reconciliation, with ledger writebacks into…
+- [Denticon Clinical API](https://apis.io/apis/denticon/denticon-clinical-api/) — Read clinical data including medical history, treatment plans, and clinical notes, and write back updates to patient medical history and documents. Part of…
+- [Denticon Practice API](https://apis.io/apis/denticon/denticon-practice-api/) — Retrieve practice configuration - office locations (OIDs), providers, and setup data - so that every query can be scoped to the correct location in…
+- [Denticon Events and Webhooks API](https://apis.io/apis/denticon/denticon-events-webhooks-api/) — Event-driven architecture that pushes synchronized patient and appointment updates to partner-registered webhook endpoints when records are created,…
 
-## Ownership
+### Published properties
 
-Denticon is a **Planet DDS** product. Planet DDS's portfolio also includes Cloud 9 Ortho and Apteryx XVWeb imaging, plus Planet DDS Pay.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Tags
+#### Security (2)
 
-- Dental
-- Practice Management
-- Healthcare
-- DSO
-- EHR
-- Patient Data
-- Revenue Cycle Management
-- Partner API
+Authentication, trust centre, and vulnerability disclosure.
 
-## Timestamps
+- [Denticon Domain Security](https://apis.io/security/denticon/denticon-domain-security/)
+- [Denticon Trust Center](https://apis.io/security/denticon/denticon-trust-center/)
 
-- **Created:** 2026-07-04
-- **Modified:** 2026-07-04
+## Where to find this API
 
-## APIs (Modeled)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Endpoint surfaces are modeled from published API categories; exact routes require developer portal enrollment.
-
-### Denticon Patient API
-Create new patients, update and synchronize patient demographics and medical history, and upload patient documents.
-
-### Denticon Appointments API
-Read the schedule, query open availability, and book, confirm, reschedule, or cancel appointments; appointment-status writebacks update Denticon from external systems.
-
-### Denticon Revenue Cycle Management API
-Retrieve insurance eligibility and claims data and post writebacks that automate insurance verification and RCM workflows.
-
-### Denticon Financial Ledger API
-Access patient ledger, account balance, and transaction data for analytics, billing, and payment reconciliation.
-
-### Denticon Clinical API
-Read clinical data (medical history, treatment plans, clinical notes) and write back updates to patient records.
-
-### Denticon Practice API
-Retrieve practice configuration - office locations (OIDs), providers, and setup data - to scope requests correctly across locations.
-
-### Denticon Events and Webhooks API
-Event-driven outbound HTTP webhooks that push synchronized patient and appointment updates when records are created, modified, or cancelled - removing the need for polling.
-
-## Pricing
-
-No public pricing. Access is contact-sales / partner-enrollment through Planet DDS (phone 800-861-5098) and the developer portal.
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/planet-dds)
 - [Website](https://www.planetdds.com/denticon/)
 - [Documentation](https://developer.planetdds.com/)
-- [Documentation (Legacy Libraries)](https://api.denticon.com/Home/GettingStarted)
-- [Sign Up / Developer Portal](https://developer.planetdds.com/)
-- [Partners / Integrations](https://www.planetdds.com/integrations/)
+- [Sign up](https://developer.planetdds.com/)
+- [Blog](https://www.planetdds.com/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 14.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 21.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 8.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/denticon/](https://apis.io/providers/denticon/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Denticon: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/denticon/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
